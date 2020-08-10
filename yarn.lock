@@ -1147,6 +1147,13 @@
     "@types/ember" "*"
     "@types/ember-test-helpers" "*"
 
+"@types/ember-resolver@^5.0.9":
+  version "5.0.9"
+  resolved "https://registry.yarnpkg.com/@types/ember-resolver/-/ember-resolver-5.0.9.tgz#278103077d3ef31093018eb82060cba5417b1df7"
+  integrity sha512-8NEVYIOXmLIaArAcIvSLy0KYU9VuVHsMH6SAuuDQ4umcj1L0GJw3QiEcnIU31/GkZm3kD0xLIBM+wy1H6I7nLA==
+  dependencies:
+    "@types/ember" "*"
+
 "@types/ember-test-helpers@*":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@types/ember-test-helpers/-/ember-test-helpers-1.0.8.tgz#f391a65177e1924a4defcf57e49304144abc3c40"
