@@ -34,10 +34,12 @@ autotracking. In the following example, `fullName` would only recalculate if
 `firstName` or `lastName` is updated.
 
 ```js
+import { tracked, memo } from '@glimmer/tracking';
+
 class Person {
   @tracked firstName = 'Jen';
   @tracked lastName = 'Weber';
-  
+
   @memo
   get fullName() {
     return `${this.firstName} ${this.lastName}`;
