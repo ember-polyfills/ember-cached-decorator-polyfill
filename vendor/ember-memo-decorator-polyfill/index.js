@@ -4,11 +4,7 @@ import { assert } from "@ember/debug";
 (() => {
   "use strict";
 
-  const {
-    _createCache: createCache,
-    _cacheGetValue: getValue,
-    _cacheIsConst: isConst,
-  } = Ember;
+  const { _createCache: createCache, _cacheGetValue: getValue } = Ember;
 
   function memo(...args) {
     const [target, key, descriptor] = args;
@@ -35,6 +31,13 @@ import { assert } from "@ember/debug";
       `The @memo decorator must be applied to getters. '${key}' is not a getter.`,
       typeof descriptor.get == "function"
     );
+
+    const getter = descriptor.get;
+    let cache;
+    descriptor.get = function () {
+      if (!cache) cache = createCache(getter.bind(this));
+      return getValue(cache);
+    };
   }
 
   Ember._memo = memo;
