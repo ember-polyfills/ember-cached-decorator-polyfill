@@ -1,6 +1,6 @@
 {
   "name": "ember-cached-decorator-polyfill",
-  "version": "0.1.0-0",
+  "version": "0.1.0-1",
   "description": "Polyfill for RFC 566: @cached",
   "keywords": [
     "ember-addon",
