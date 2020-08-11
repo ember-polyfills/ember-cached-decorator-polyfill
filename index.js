@@ -7,7 +7,7 @@ module.exports = {
     this._super.included.apply(this, arguments);
     this._ensureThisImport();
 
-    this.import("vendor/ember-memo-decorator-polyfill/index.js");
+    this.import("vendor/ember-cached-decorator-polyfill/index.js");
   },
 
   treeForVendor(tree) {

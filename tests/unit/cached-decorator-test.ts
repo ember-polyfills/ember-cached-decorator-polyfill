@@ -1,13 +1,13 @@
 import { module, test } from 'qunit';
-import { tracked, memo } from '@glimmer/tracking';
+import { tracked, cached } from '@glimmer/tracking';
 
-module('Unit | Decorators | @memo', function() {
+module('Unit | Decorators | @cached', function() {
   test('it works', function(assert) {
     class Person {
       @tracked firstName = 'Jen';
       @tracked lastName = 'Weber';
 
-      @memo
+      @cached
       get fullName() {
         const fullName = `${this.firstName} ${this.lastName}`;
         assert.step(fullName);

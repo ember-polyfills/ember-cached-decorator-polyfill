@@ -1,7 +1,7 @@
 {
-  "name": "ember-memo-decorator-polyfill",
+  "name": "ember-cached-decorator-polyfill",
   "version": "0.1.0-0",
-  "description": "Polyfill for RFC 566: @memo",
+  "description": "Polyfill for RFC 566: @cached",
   "keywords": [
     "ember-addon",
     "polyfill",
@@ -14,13 +14,13 @@
     "memoized",
     "memoization"
   ],
-  "homepage": "https://github.com/ember-polyfills/ember-memo-decorator-polyfill#readme",
+  "homepage": "https://github.com/ember-polyfills/ember-cached-decorator-polyfill#readme",
   "bugs": {
-    "url": "https://github.com/ember-polyfills/ember-memo-decorator-polyfill/issues"
+    "url": "https://github.com/ember-polyfills/ember-cached-decorator-polyfill/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ember-polyfills/ember-memo-decorator-polyfill.git"
+    "url": "git+https://github.com/ember-polyfills/ember-cached-decorator-polyfill.git"
   },
   "license": "MIT",
   "author": "Jan Buschtöns <jan@buschtoens.me> (https://jan.buschtoens.me)",

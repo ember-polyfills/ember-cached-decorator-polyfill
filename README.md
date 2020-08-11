@@ -1,22 +1,22 @@
-# ember-memo-decorator-polyfill
+# ember-cached-decorator-polyfill
 
-[![CI](https://github.com/ember-polyfills/ember-memo-decorator-polyfill/workflows/CI/badge.svg)](https://github.com/ember-polyfills/ember-memo-decorator-polyfill/actions)
-[![npm version](https://badge.fury.io/js/ember-memo-decorator-polyfill.svg)](http://badge.fury.io/js/ember-memo-decorator-polyfill)
-[![Download Total](https://img.shields.io/npm/dt/ember-memo-decorator-polyfill.svg)](http://badge.fury.io/js/ember-memo-decorator-polyfill)
-[![Ember Observer Score](https://emberobserver.com/badges/ember-memo-decorator-polyfill.svg)](https://emberobserver.com/addons/ember-memo-decorator-polyfill)
+[![CI](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/workflows/CI/badge.svg)](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/actions)
+[![npm version](https://badge.fury.io/js/ember-cached-decorator-polyfill.svg)](http://badge.fury.io/js/ember-cached-decorator-polyfill)
+[![Download Total](https://img.shields.io/npm/dt/ember-cached-decorator-polyfill.svg)](http://badge.fury.io/js/ember-cached-decorator-polyfill)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-cached-decorator-polyfill.svg)](https://emberobserver.com/addons/ember-cached-decorator-polyfill)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)  
 [![Dependabot enabled](https://img.shields.io/badge/dependabot-enabled-blue.svg?logo=dependabot)](https://dependabot.com/)
-[![dependencies Status](https://david-dm.org/ember-polyfills/ember-memo-decorator-polyfill/status.svg)](https://david-dm.org/ember-polyfills/ember-memo-decorator-polyfill)
-[![devDependencies Status](https://david-dm.org/ember-polyfills/ember-memo-decorator-polyfill/dev-status.svg)](https://david-dm.org/ember-polyfills/ember-memo-decorator-polyfill?type=dev)
+[![dependencies Status](https://david-dm.org/ember-polyfills/ember-cached-decorator-polyfill/status.svg)](https://david-dm.org/ember-polyfills/ember-cached-decorator-polyfill)
+[![devDependencies Status](https://david-dm.org/ember-polyfills/ember-cached-decorator-polyfill/dev-status.svg)](https://david-dm.org/ember-polyfills/ember-cached-decorator-polyfill?type=dev)
 
-Polyfill for [RFC 566 "@memo decorator"][rfc-566].
+Polyfill for [RFC 566 "@cached decorator"][rfc-566].
 
 [rfc-566]: https://github.com/emberjs/rfcs/pull/566
 
 ## Installation
 
 ```bash
-ember install ember-memo-decorator-polyfill
+ember install ember-cached-decorator-polyfill
 ```
 
 For addons, pass the `-S` flag.
@@ -29,18 +29,18 @@ For addons, pass the `-S` flag.
 
 ## Summary
 
-Add a `@memo` decorator for memoizing the result of a getter based on
+Add a `@cached` decorator for memoizing the result of a getter based on
 autotracking. In the following example, `fullName` would only recalculate if
 `firstName` or `lastName` is updated.
 
 ```js
-import { tracked, memo } from '@glimmer/tracking';
+import { tracked, cached } from '@glimmer/tracking';
 
 class Person {
   @tracked firstName = 'Jen';
   @tracked lastName = 'Weber';
 
-  @memo
+  @cached
   get fullName() {
     return `${this.firstName} ${this.lastName}`;
   }
@@ -48,7 +48,7 @@ class Person {
 ```
 
 For detailed usage instructions, refer to the
-[RFC 566 "@memo decorator"][rfc-566].
+[RFC 566 "@cached decorator"][rfc-566].
 
 ## TypeScript Usage
 
@@ -69,7 +69,7 @@ Add the following to your `tsconfig.json`:
   "paths": {
     // ...snip...
     "@glimmer/tracking": [
-      "node_modules/ember-memo-decorator-polyfill",
+      "node_modules/ember-cached-decorator-polyfill",
       "node_modules/@glimmer/tracking/dist/types"
     ],
   }

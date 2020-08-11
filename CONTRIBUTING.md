@@ -3,7 +3,7 @@
 ## Installation
 
 * `git clone <repository-url>`
-* `cd ember-memo-decorator-polyfill`
+* `cd ember-cached-decorator-polyfill`
 * `yarn install`
 
 ## Linting

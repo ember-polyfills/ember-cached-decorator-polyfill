@@ -4,7 +4,7 @@ declare module '@glimmer/tracking' {
    *
    * Memoizes the result of a getter based on autotracking.
    *
-   * The `@memo` decorator can be used on native getters to memoize their return
+   * The `@cached` decorator can be used on native getters to memoize their return
    * values based on the tracked state they consume while being calculated.
    *
    * By default a getter is always re-computed every time it is accessed. On
@@ -19,20 +19,20 @@ declare module '@glimmer/tracking' {
    * @example
    *
    * ```ts
-   * import { tracked, memo } from '@glimmer/tracking';
+   * import { tracked, cached } from '@glimmer/tracking';
    *
    * class Person {
    *   @tracked firstName = 'Jen';
    *   @tracked lastName = 'Weber';
    *
-   *   @memo
+   *   @cached
    *   get fullName() {
    *     return `${this.firstName} ${this.lastName}`;
    *   }
    * }
    * ```
    */
-  export let memo: PropertyDecorator;
+  export let cached: PropertyDecorator;
 
   export { tracked, setPropertyDidChange } from '@glimmer/tracking/dist/types/src/tracked';
 }

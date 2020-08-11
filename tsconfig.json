@@ -28,16 +28,16 @@
         "tests/dummy/app/*",
         "app/*"
       ],
-      "ember-memo-decorator-polyfill": [
+      "ember-cached-decorator-polyfill": [
         "addon"
       ],
-      "ember-memo-decorator-polyfill/*": [
+      "ember-cached-decorator-polyfill/*": [
         "addon/*"
       ],
-      "ember-memo-decorator-polyfill/test-support": [
+      "ember-cached-decorator-polyfill/test-support": [
         "addon-test-support"
       ],
-      "ember-memo-decorator-polyfill/test-support/*": [
+      "ember-cached-decorator-polyfill/test-support/*": [
         "addon-test-support/*"
       ],
       "@glimmer/tracking": [
