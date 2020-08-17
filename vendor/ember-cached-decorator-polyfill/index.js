@@ -32,11 +32,11 @@ import { assert } from '@ember/debug';
       typeof descriptor.get == 'function'
     );
 
+    const caches = new WeakMap();
     const getter = descriptor.get;
-    let cache;
     descriptor.get = function () {
-      if (!cache) cache = createCache(getter.bind(this));
-      return getValue(cache);
+      if (!caches.has(this)) caches.set(this, createCache(getter.bind(this)));
+      return getValue(caches.get(this));
     };
   }
 
