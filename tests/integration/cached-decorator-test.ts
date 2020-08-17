@@ -3,7 +3,7 @@ import { tracked, cached } from '@glimmer/tracking';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, settled } from '@ember/test-helpers';
 import { TestContext } from 'ember-test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 
 type Context = TestContext & {
   personA: any;
@@ -15,8 +15,8 @@ module('Integration | Decorators | @cached', function (hooks) {
 
   test('it works', async function (this: Context, assert) {
     class Person {
-      @tracked firstName = '';
-      @tracked lastName = '';
+      @tracked firstName: string;
+      @tracked lastNam: string;
 
       constructor(firstName: string, lastName: string) {
         this.firstName = firstName;
