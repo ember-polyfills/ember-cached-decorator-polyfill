@@ -95,6 +95,7 @@
     "edition": "octane"
   },
   "ember-addon": {
+    "before": "ember-cli-babel",
     "configPath": "tests/dummy/config"
   },
   "release-it": {
