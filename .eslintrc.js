@@ -1,64 +1,64 @@
-"use strict";
+'use strict';
 
 module.exports = {
   root: true,
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: 'module'
   },
-  plugins: ["prettier"],
-  extends: ["eslint:recommended", "prettier"],
+  plugins: ['prettier'],
+  extends: ['eslint:recommended', 'prettier'],
   env: {
-    es6: true,
+    es6: true
   },
 
   rules: {
-    "prettier/prettier": "error",
+    'prettier/prettier': 'error'
   },
 
   overrides: [
     // node files
     {
       files: [
-        ".eslintrc.js",
-        ".prettierrc.js",
-        ".template-lintrc.js",
-        "ember-cli-build.js",
-        "index.js",
-        "testem.js",
-        "blueprints/*/index.js",
-        "config/**/*.js",
-        "tests/dummy/config/**/*.js",
+        '.eslintrc.js',
+        '.prettierrc.js',
+        '.template-lintrc.js',
+        'ember-cli-build.js',
+        'index.js',
+        'testem.js',
+        'blueprints/*/index.js',
+        'config/**/*.js',
+        'tests/dummy/config/**/*.js'
       ],
       excludedFiles: [
-        "addon/**",
-        "addon-test-support/**",
-        "app/**",
-        "tests/dummy/app/**",
-        "vendor/**",
+        'addon/**',
+        'addon-test-support/**',
+        'app/**',
+        'tests/dummy/app/**',
+        'vendor/**'
       ],
       parserOptions: {
-        sourceType: "script",
+        sourceType: 'script'
       },
       env: {
         browser: false,
-        node: true,
+        node: true
       },
-      plugins: ["node"],
-      extends: ["plugin:node/recommended"],
+      plugins: ['node'],
+      extends: ['plugin:node/recommended']
     },
 
     {
-      files: ["vendor/**/*.js"],
+      files: ['vendor/**/*.js'],
 
       env: {
-        browser: true,
+        browser: true
       },
 
       rules: {
-        "no-inner-declarations": "off",
-      },
-    },
-  ],
+        'no-inner-declarations': 'off'
+      }
+    }
+  ]
 };
