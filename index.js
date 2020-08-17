@@ -1,24 +1,24 @@
-"use strict";
+'use strict';
 
 module.exports = {
-  name: require("./package").name,
+  name: require('./package').name,
 
   included() {
     this._super.included.apply(this, arguments);
     this._ensureThisImport();
 
-    this.import("vendor/ember-cached-decorator-polyfill/index.js");
+    this.import('vendor/ember-cached-decorator-polyfill/index.js');
   },
 
   treeForVendor(tree) {
-    const babel = this.addons.find((a) => a.name === "ember-cli-babel");
+    const babel = this.addons.find(a => a.name === 'ember-cli-babel');
 
     return babel.transpileTree(tree, {
       babel: this.options.babel,
 
-      "ember-cli-babel": {
-        compileModules: false,
-      },
+      'ember-cli-babel': {
+        compileModules: false
+      }
     });
   },
 
@@ -38,5 +38,5 @@ module.exports = {
         app.import(asset, options);
       };
     }
-  },
+  }
 };
