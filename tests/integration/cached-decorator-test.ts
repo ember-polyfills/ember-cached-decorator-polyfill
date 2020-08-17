@@ -16,7 +16,7 @@ module('Integration | Decorators | @cached', function (hooks) {
   test('it works', async function (this: Context, assert) {
     class Person {
       @tracked firstName: string;
-      @tracked lastNam: string;
+      @tracked lastName: string;
 
       constructor(firstName: string, lastName: string) {
         this.firstName = firstName;
