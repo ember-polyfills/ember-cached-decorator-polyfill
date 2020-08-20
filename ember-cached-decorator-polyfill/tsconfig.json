@@ -43,9 +43,6 @@
       "@glimmer/tracking": [
         "./",
         "node_modules/@glimmer/tracking/dist/types"
-      ],
-      "*": [
-        "types/*"
       ]
     }
   },
@@ -53,7 +50,6 @@
     "app/**/*",
     "addon/**/*",
     "tests/**/*",
-    "types/**/*",
     "test-support/**/*",
     "addon-test-support/**/*"
   ]
