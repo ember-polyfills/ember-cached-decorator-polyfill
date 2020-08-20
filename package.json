@@ -3,5 +3,8 @@
   "workspaces": [
     "ember-cached-decorator-polyfill",
     "test-packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
 }
