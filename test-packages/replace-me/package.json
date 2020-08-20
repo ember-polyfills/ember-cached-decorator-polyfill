@@ -1,0 +1,12 @@
+{
+  "name": "@test-packages/replace-me",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "true",
+    "test:ember": "true"
+  },
+  "dependencies": {
+    "ember-cached-decorator-polyfill": "^0.1.0-3"
+  }
+}

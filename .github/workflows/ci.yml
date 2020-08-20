@@ -40,6 +40,23 @@ jobs:
       - name: Browser Tests
         run: yarn workspace ember-cached-decorator-polyfill test:ember
 
+  test-in-packages:
+    name: Test as dependency in real packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 14
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: yarn lerna run --scope "@test-packages/*" lint
+      - name: Browser Tests
+        run: yarn lerna run --scope "@test-packages/*" test:ember
+
   test-old-dependencies:
     name: Oldest Supported Env
     runs-on: ubuntu-latest
