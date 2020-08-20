@@ -36,9 +36,9 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint
-        run: yarn lint
+        run: yarn workspace ember-cached-decorator-polyfill lint
       - name: Browser Tests
-        run: yarn test:ember
+        run: yarn workspace ember-cached-decorator-polyfill test:ember
 
   test-old-dependencies:
     name: Oldest Supported Env
@@ -53,7 +53,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Browser Tests
-        run: yarn test:ember
+        run: yarn workspace ember-cached-decorator-polyfill test:ember
 
   test-try:
     name: Ember Try
@@ -78,4 +78,4 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Try Scenario
-        run: yarn ember try:one ${{ matrix.scenario }}
+        run: yarn workspace ember-cached-decorator-polyfill ember try:one ${{ matrix.scenario }}
