@@ -23,9 +23,9 @@ For addons, pass the `-S` flag.
 
 ## Compatibility
 
-* Ember.js v3.13 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
+- Ember.js v3.13 or above
+- Ember CLI v2.13 or above
+- Node.js v10 or above
 
 ## Summary
 
@@ -53,7 +53,7 @@ For detailed usage instructions, refer to the
 ## TypeScript Usage
 
 TypeScript's normal type resolution for an import from `@glimmer/tracking`
-will **not** find this the types provided by this package (since TypeScript
+will **not** find the types provided by this package (since TypeScript
 would attempt to resolve it as `node_modules/@glimmer/tracking` or under
 the Definitely Typed location for `@glimmer/tracking`).
 
