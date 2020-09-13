@@ -145,4 +145,54 @@ module('Unit | Decorators | @cached', function () {
       'getter was not called again after repeated property access'
     );
   });
+
+  // https://github.com/emberjs/rfcs/pull/656#issuecomment-691698733
+  test('it can access its own cache during recomputation', function (assert) {
+    class Person {
+      @tracked firstName: string;
+      @tracked lastName: string;
+
+      constructor(firstName: string, lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+
+      @cached
+      get fullName() {
+        assert.step(this.fullName ?? '__EMPTY__');
+        const fullName = `${this.firstName} ${this.lastName}`;
+        return fullName;
+      }
+    }
+
+    const robert = new Person('Robert', 'Jackson');
+
+    assert.strictEqual(robert.fullName, 'Robert Jackson');
+    assert.verifySteps(['__EMPTY__'], 'initially cache is empty');
+
+    assert.strictEqual(robert.fullName, 'Robert Jackson');
+    assert.verifySteps(
+      [],
+      'getter was not called again after repeated property access'
+    );
+
+    robert.lastName = 'Downey Jr.';
+
+    assert.verifySteps(
+      [],
+      'changing a property does not trigger an eager re-computation'
+    );
+
+    assert.strictEqual(robert.fullName, 'Robert Downey Jr.');
+    assert.verifySteps(
+      ['Robert Jackson'],
+      'previous cache value is returned during recomputation'
+    );
+
+    assert.strictEqual(robert.fullName, 'Robert Downey Jr.');
+    assert.verifySteps(
+      [],
+      'getter was not called again after repeated property access'
+    );
+  });
 });
