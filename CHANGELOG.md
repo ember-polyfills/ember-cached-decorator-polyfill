@@ -1,3 +1,11 @@
+## v0.1.1 (2021-02-16)
+
+#### :bug: Bug Fix
+* [#55](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/55) Require 1.0.1 of cache primitive polyfill ([@sandstrom](https://github.com/sandstrom))
+
+#### Committers: 1
+- [@sandstrom](https://github.com/sandstrom)
+
 ## v0.1.0 (2020-09-09)
 
 ## v0.1.0-3 (2020-08-17)
