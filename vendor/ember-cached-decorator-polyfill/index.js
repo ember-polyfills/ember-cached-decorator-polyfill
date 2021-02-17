@@ -34,9 +34,20 @@ import { assert } from '@ember/debug';
 
     const caches = new WeakMap();
     const getter = descriptor.get;
+
+    let isComputing = false;
+    let previousValue;
+
     descriptor.get = function () {
+      if (isComputing) return previousValue;
+
       if (!caches.has(this)) caches.set(this, createCache(getter.bind(this)));
-      return getValue(caches.get(this));
+
+      isComputing = true;
+      previousValue = getValue(caches.get(this));
+      isComputing = false;
+
+      return previousValue;
     };
   }
 
