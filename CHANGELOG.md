@@ -1,3 +1,11 @@
+## v0.1.2 (2021-05-19)
+
+#### :bug: Bug Fix
+* [#75](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/75) Ensure polyfill works properly with Ember 3.27+  ([@mydea](https://github.com/mydea))
+
+#### Committers: 1
+- Francesco Novy ([@mydea](https://github.com/mydea))
+
 ## v0.1.1 (2021-02-16)
 
 #### :bug: Bug Fix
