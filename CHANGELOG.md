@@ -1,3 +1,15 @@
+## v0.1.3 (2021-05-20)
+
+#### :bug: Bug Fix
+* [#80](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/80) Fix: check for hasPlugin needs the resolved path ([@runspired](https://github.com/runspired))
+
+#### :house: Internal
+* [#78](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/78) Add ember-source@3.24 LTS to CI configuration. ([@rwjblue](https://github.com/rwjblue))
+
+#### Committers: 2
+- Chris Thoburn ([@runspired](https://github.com/runspired))
+- Robert Jackson ([@rwjblue](https://github.com/rwjblue))
+
 ## v0.1.2 (2021-05-19)
 
 #### :bug: Bug Fix
