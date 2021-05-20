@@ -14,9 +14,10 @@ module.exports = {
 
   addBabelPlugin() {
     let app = this._findHost();
+    let pluginPath = resolve(__dirname, './lib/transpile-modules.js');
 
-    if (!hasPlugin(app, 'ember-cache-decorator-polyfill')) {
-      addPlugin(app, resolve(__dirname, './lib/transpile-modules.js'));
+    if (!hasPlugin(app, pluginPath)) {
+      addPlugin(app, pluginPath);
     }
   }
 };
