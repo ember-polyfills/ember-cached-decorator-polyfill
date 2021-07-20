@@ -6,18 +6,17 @@ const { hasPlugin, addPlugin } = require('ember-cli-babel-plugin-helpers');
 module.exports = {
   name: require('./package').name,
 
-  included() {
+  included(parent) {
     this._super.included.apply(this, arguments);
 
-    this.addBabelPlugin();
+    this.addBabelPlugin(parent);
   },
 
-  addBabelPlugin() {
-    let app = this._findHost();
+  addBabelPlugin(parent) {
     let pluginPath = resolve(__dirname, './lib/transpile-modules.js');
 
-    if (!hasPlugin(app, pluginPath)) {
-      addPlugin(app, pluginPath);
+    if (!hasPlugin(parent, pluginPath)) {
+      addPlugin(parent, pluginPath);
     }
   }
 };
