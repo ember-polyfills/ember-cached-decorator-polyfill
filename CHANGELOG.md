@@ -1,3 +1,11 @@
+## v0.1.4 (2021-07-20)
+
+#### :bug: Bug Fix
+* [#85](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/85) fix: Allow the babel plugin to be registered for addons ([@dcyriller](https://github.com/dcyriller))
+
+#### Committers: 1
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+
 ## v0.1.3 (2021-05-20)
 
 #### :bug: Bug Fix
