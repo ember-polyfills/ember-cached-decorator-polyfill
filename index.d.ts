@@ -1,3 +1,5 @@
+import '@glimmer/tracking';
+
 declare module '@glimmer/tracking' {
   /**
    * @decorator
@@ -33,6 +35,4 @@ declare module '@glimmer/tracking' {
    * ```
    */
   export let cached: PropertyDecorator;
-
-  export { tracked, setPropertyDidChange } from '@glimmer/tracking/dist/types/src/tracked';
 }

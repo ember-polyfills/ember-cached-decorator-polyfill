@@ -29,7 +29,8 @@
         "app/*"
       ],
       "ember-cached-decorator-polyfill": [
-        "addon"
+        // Types for this package are in a hand-generated file
+        "index.d.ts"
       ],
       "ember-cached-decorator-polyfill/*": [
         "addon/*"
@@ -39,10 +40,6 @@
       ],
       "ember-cached-decorator-polyfill/test-support/*": [
         "addon-test-support/*"
-      ],
-      "@glimmer/tracking": [
-        "./",
-        "node_modules/@glimmer/tracking/dist/types"
       ],
       "*": [
         "types/*"
