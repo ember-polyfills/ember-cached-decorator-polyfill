@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/ember-cached-decorator-polyfill.svg)](http://badge.fury.io/js/ember-cached-decorator-polyfill)
 [![Download Total](https://img.shields.io/npm/dt/ember-cached-decorator-polyfill.svg)](http://badge.fury.io/js/ember-cached-decorator-polyfill)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-cached-decorator-polyfill.svg)](https://emberobserver.com/addons/ember-cached-decorator-polyfill)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)  
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Dependabot enabled](https://img.shields.io/badge/dependabot-enabled-blue.svg?logo=dependabot)](https://dependabot.com/)
 [![dependencies Status](https://david-dm.org/ember-polyfills/ember-cached-decorator-polyfill/status.svg)](https://david-dm.org/ember-polyfills/ember-cached-decorator-polyfill)
 [![devDependencies Status](https://david-dm.org/ember-polyfills/ember-cached-decorator-polyfill/dev-status.svg)](https://david-dm.org/ember-polyfills/ember-cached-decorator-polyfill?type=dev)
@@ -53,25 +53,15 @@ For detailed usage instructions, refer to the
 ## TypeScript Usage
 
 TypeScript's normal type resolution for an import from `@glimmer/tracking`
-will **not** find the types provided by this package (since TypeScript
-would attempt to resolve it as `node_modules/@glimmer/tracking` or under
-the Definitely Typed location for `@glimmer/tracking`).
+will **not** find the types provided by this polyfill, since the actual
+`@glimmer/tracking` package does not include an export for `cache`.
 
-Once the addition to the `@glimmer/tracking` API is a documented part of Ember's
-API, the types will be available upstream, but in the meantime users will need
-to modify their `tsconfig.json` to tell TypeScript where these types are.
+In order for TypeScript to recognize the extra `cache` export, add an import
+like this somewhere in your codebase (like `app.ts` or `test-helper.ts`):
 
-Add the following to your `tsconfig.json`:
-
-```js
-{
-  // ...snip...
-  "paths": {
-    // ...snip...
-    "@glimmer/tracking": [
-      "node_modules/ember-cached-decorator-polyfill",
-      "node_modules/@glimmer/tracking/dist/types"
-    ],
-  }
-}
+```ts
+import 'ember-cached-decorator-polyfill';
 ```
+
+Once the upstream types have been updated to reflect RFC 566, this will no
+longer be necessary.
