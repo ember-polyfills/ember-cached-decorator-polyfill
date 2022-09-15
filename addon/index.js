@@ -13,7 +13,7 @@ export function cached(...args) {
     `You attempted to use @cached on with ${
       args.length > 1 ? 'arguments' : 'an argument'
     } ( @cached(${args
-      .map(d => `'${d}'`)
+      .map((d) => `'${d}'`)
       .join(
         ', '
       )}), which is not supported. Dependencies are automatically tracked, so you can just use ${'`@cached`'}`,

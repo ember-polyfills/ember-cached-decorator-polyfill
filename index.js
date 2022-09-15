@@ -18,5 +18,5 @@ module.exports = {
     if (!hasPlugin(parent, pluginPath)) {
       addPlugin(parent, pluginPath);
     }
-  }
+  },
 };
