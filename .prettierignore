@@ -1,5 +1,6 @@
 # unconventional js
 /blueprints/*/files/
+/vendor/
 
 # compiled output
 /dist/
@@ -12,8 +13,8 @@
 # misc
 /coverage/
 !.*
-.*/
 .eslintcache
+.lint-todo/
 
 # ember-try
 /.node_modules.ember-try/
