@@ -14,11 +14,12 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noEmitOnError": false,
-    "noEmit": true,
-    "inlineSourceMap": true,
+    "noEmit": false,
+    "sourceMap": true,
+    "declaration": true,
     "inlineSources": true,
     "baseUrl": ".",
-    "module": "es6",
+    "module": "CommonJS",
     "experimentalDecorators": true,
     "paths": {
       "dummy/tests/*": [
@@ -47,12 +48,6 @@
     }
   },
   "include": [
-    "app/**/*",
-    "addon/**/*",
-    "tests/**/*",
-    "types/**/*",
-    "lib/**/*",
-    "test-support/**/*",
-    "addon-test-support/**/*"
+    "lib/**/*"
   ]
 }
