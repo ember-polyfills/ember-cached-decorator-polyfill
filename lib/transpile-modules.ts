@@ -4,65 +4,75 @@ import path from 'path';
 import type * as Babel from '@babel/core';
 import type { types as t } from '@babel/core';
 import type { NodePath } from '@babel/traverse';
+import { ImportUtil } from 'babel-import-util';
 
-/**
- * Based on `babel-plugin-ember-modules-api-polyfill`.
- * @see https://github.com/ember-cli/babel-plugin-ember-modules-api-polyfill/blob/master/src/index.js
- */
+interface State {
+  importer: ImportUtil;
+}
+
 export default function (babel: typeof Babel) {
   const t = babel.types;
 
-  const MODULE = '@glimmer/tracking';
+  const REAL_MODULE = '@glimmer/tracking';
   const IMPORT = 'cached';
-  const REPLACED_MODULE = 'ember-cached-decorator-polyfill';
+  const POLYFILL_MODULE = 'ember-cached-decorator-polyfill';
+  const AVAILABE_AT = '>= 4.1.0-alpha.0';
+
+  // Notice that the only name we introduce into scope here is %%local%%, and we
+  // know that name is safe to use because it's the name the user was already
+  // using in the ImportSpecifier that we're replacing.
+  let loader = babel.template(`
+    let %%local%% = %%macroCondition%%(%%dependencySatisfies%%('ember-source', '${AVAILABE_AT}')) ? 
+      %%importSync%%('${REAL_MODULE}').${IMPORT} : 
+      %%importSync%%('${POLYFILL_MODULE}').${IMPORT};
+  `);
 
   return {
     name: 'ember-cache-decorator-polyfill',
     visitor: {
-      ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
-        const node = path.node;
-        const declarations: t.ImportDeclaration[] = [];
-        const removals: NodePath<t.Node>[] = [];
-        const specifiers = path.get('specifiers');
-        const importPath = node.source.value;
-
-        // Only walk specifiers if this is a module we have a mapping for
-        if (importPath !== MODULE) {
+      Program(path: NodePath<t.Program>, state: State) {
+        state.importer = new ImportUtil(t, path);
+      },
+      ImportDeclaration(path: NodePath<t.ImportDeclaration>, state: State) {
+        if (path.node.source.value !== REAL_MODULE) {
           return;
         }
 
-        // Iterate all the specifiers and attempt to locate their mapping
-        for (const specifierPath of specifiers) {
-          const names = getNames(specifierPath);
-          if (!names) {
-            continue;
-          }
-          if (names.imported !== IMPORT) {
+        for (let specifierPath of path.get('specifiers')) {
+          let names = getNames(specifierPath);
+          if (names?.imported !== IMPORT) {
             continue;
           }
 
-          removals.push(specifierPath);
-
-          declarations.push(
-            t.importDeclaration(
-              [
-                t.importSpecifier(
-                  t.identifier(names.local),
-                  t.identifier(IMPORT)
-                ),
-              ],
-              t.stringLiteral(REPLACED_MODULE)
-            )
+          // using babel-import-util to gain access to these functions ensures
+          // that we will never smash any existing bindings (and we'll reuse
+          // existing imports for these if they exist)
+          let importSync = state.importer.import(
+            path,
+            '@embroider/macros',
+            'importSync'
           );
-        }
+          let macroCondition = state.importer.import(
+            path,
+            '@embroider/macros',
+            'macroCondition'
+          );
+          let dependencySatisfies = state.importer.import(
+            path,
+            '@embroider/macros',
+            'dependencySatisfies'
+          );
 
-        if (removals.length > 0) {
-          if (removals.length === node.specifiers.length) {
-            path.replaceWithMultiple(declarations);
-          } else {
-            removals.forEach((specifierPath) => specifierPath.remove());
-            path.insertAfter(declarations);
-          }
+          specifierPath.remove();
+
+          path.insertAfter(
+            loader({
+              local: t.identifier(names.local),
+              macroCondition,
+              dependencySatisfies,
+              importSync,
+            })
+          );
         }
       },
     },
@@ -81,7 +91,7 @@ function getNames(
   if (specifierPath.isImportDefaultSpecifier()) {
     return { imported: 'default', local: specifierPath.node.local.name };
   } else if (specifierPath.isImportSpecifier()) {
-    const importedNode = specifierPath.node.imported;
+    let importedNode = specifierPath.node.imported;
     if (importedNode.type === 'Identifier') {
       return {
         imported: importedNode.name,

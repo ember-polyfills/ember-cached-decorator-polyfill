@@ -9,7 +9,16 @@ module.exports = {
   included(parent) {
     this._super.included.apply(this, arguments);
 
+    // this adds our babel plugin to our parent package
     this.addBabelPlugin(parent);
+
+    // this ensures our parent package can process macros, since our babel
+    // plugin emits macros
+    if (!this.parent.addons.find((a) => a.name === '@embroider/macros')) {
+      this.addons
+        .find((a) => a.name === '@embroider/macros')
+        .installBabelPlugin(parent);
+    }
   },
 
   addBabelPlugin(parent) {
