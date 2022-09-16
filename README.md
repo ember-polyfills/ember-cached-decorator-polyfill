@@ -21,11 +21,15 @@ ember install ember-cached-decorator-polyfill
 
 For addons, pass the `-S` flag.
 
+If you're working in an environment with an explicit Babel config (like a V2
+addon or an app with `ember-cli-babel`'s `{ useBabelConfig: true }`
+mode), see "Explicit Babel Config" below.
+
 ## Compatibility
 
 - Ember.js v3.13 or above
 - Ember CLI v2.13 or above
-- Node.js v10 or above
+- Node.js v14 or above
 
 ## Summary
 
@@ -65,3 +69,18 @@ import 'ember-cached-decorator-polyfill';
 
 Once the upstream types have been updated to reflect RFC 566, this will no
 longer be necessary.
+
+## Explicit Babel Config
+
+In environments where you have an explicit Babel config (like authoring a V2
+addon) you will need to configure this polyfill's babel plugin. Add it to your
+`babel.config.js` like:
+
+```
+{
+  "plugins": [
+    "ember-cached-decorator-polyfill/babel-plugin"
+  ]
+}
+```
+
