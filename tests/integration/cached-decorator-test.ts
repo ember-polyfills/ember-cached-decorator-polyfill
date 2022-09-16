@@ -1,8 +1,7 @@
 import { module, test } from 'qunit';
 import { tracked, cached } from '@glimmer/tracking';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, settled } from '@ember/test-helpers';
-import { TestContext } from 'ember-test-helpers';
+import { render, settled, TestContext } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 type Context = TestContext & {
