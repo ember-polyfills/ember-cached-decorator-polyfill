@@ -14,6 +14,10 @@
     "memoized",
     "memoization"
   ],
+  "exports": {
+    ".": "./index.js",
+    "./babel-plugin": "./lib/transpile-modules.js"
+  },
   "homepage": "https://github.com/ember-polyfills/ember-cached-decorator-polyfill#readme",
   "bugs": {
     "url": "https://github.com/ember-polyfills/ember-cached-decorator-polyfill/issues"
@@ -44,7 +48,9 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
+    "@embroider/macros": "^1.8.3",
     "@glimmer/tracking": "^1.1.2",
+    "babel-import-util": "^1.2.2",
     "ember-cache-primitive-polyfill": "^1.0.1",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-babel-plugin-helpers": "^1.1.1"
@@ -56,7 +62,7 @@
     "@glimmer/component": "^1.1.2",
     "@types/babel__core": "^7.1.19",
     "@types/babel__traverse": "^7.18.1",
-    "@types/ember": "^3.16.0",
+    "@types/ember": "^4.0.1",
     "@types/ember-qunit": "^5.0.1",
     "@types/ember-resolver": "^5.0.9",
     "@types/ember__test-helpers": "^2.8.1",
@@ -94,7 +100,7 @@
     "prettier": "^2.7.1",
     "qunit": "^2.19.1",
     "qunit-dom": "^2.0.0",
-    "release-it": "^14.0.2",
+    "release-it": "^15.4.2",
     "release-it-lerna-changelog": "^2.3.0",
     "typescript": "~4.8.3",
     "webpack": "^5.74.0"
@@ -111,6 +117,9 @@
   "ember-addon": {
     "before": "ember-cli-babel",
     "configPath": "tests/dummy/config"
+  },
+  "peerDependencies": {
+    "ember-source": "^3.13.0 | ^4.0.0"
   },
   "release-it": {
     "plugins": {
