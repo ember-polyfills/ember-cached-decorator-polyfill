@@ -14,6 +14,10 @@
     "memoized",
     "memoization"
   ],
+  "exports": {
+    ".": "./index.js",
+    "./babel-plugin": "./lib/transpile-modules.js"
+  },
   "homepage": "https://github.com/ember-polyfills/ember-cached-decorator-polyfill#readme",
   "bugs": {
     "url": "https://github.com/ember-polyfills/ember-cached-decorator-polyfill/issues"
