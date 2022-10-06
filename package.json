@@ -61,7 +61,7 @@
     "@embroider/test-setup": "^1.8.3",
     "@glimmer/component": "^1.1.2",
     "@types/babel__core": "^7.1.19",
-    "@types/babel__traverse": "^7.18.1",
+    "@types/babel__traverse": "^7.18.2",
     "@types/ember": "^4.0.1",
     "@types/ember-qunit": "^5.0.1",
     "@types/ember-resolver": "^5.0.9",
