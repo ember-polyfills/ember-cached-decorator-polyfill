@@ -1,3 +1,20 @@
+
+## v1.0.0 (2022-10-06)
+
+#### :boom: Breaking Change
+* [#177](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/177) Updating to blueprint for ember 4.7 ([@ef4](https://github.com/ef4)). Oldest supported Node is now 14, oldest supported Ember is still 3.13.
+
+#### :rocket: Enhancement
+* [#184](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/184) Macro-based ember version check ([@ef4](https://github.com/ef4))
+* [#144](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/144) Simplify TS setup to avoid needing custom `paths` ([@dfreeman](https://github.com/dfreeman))
+
+#### :house: Internal
+* [#181](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/181) convert babel plugin to typescript ([@ef4](https://github.com/ef4))
+
+#### Committers: 2
+- Dan Freeman ([@dfreeman](https://github.com/dfreeman))
+- Edward Faulkner ([@ef4](https://github.com/ef4))
+
 ## v0.1.4 (2021-07-20)
 
 #### :bug: Bug Fix
