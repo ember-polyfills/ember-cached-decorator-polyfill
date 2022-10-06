@@ -119,7 +119,7 @@
     "configPath": "tests/dummy/config"
   },
   "peerDependencies": {
-    "ember-source": "^3.13.0 | ^4.0.0"
+    "ember-source": "^3.13.0 || ^4.0.0"
   },
   "release-it": {
     "plugins": {
