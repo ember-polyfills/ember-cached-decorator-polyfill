@@ -1,4 +1,9 @@
 
+## v1.0.1 (2022-10-06)
+
+#### :bug: Bug Fix
+* [#80](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/194) Fix npm publishing ([@ef4](https://github.com/ef4))
+
 ## v1.0.0 (2022-10-06)
 
 #### :boom: Breaking Change
