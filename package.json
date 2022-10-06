@@ -63,7 +63,7 @@
     "@types/babel__core": "^7.1.19",
     "@types/babel__traverse": "^7.18.1",
     "@types/ember": "^4.0.1",
-    "@types/ember-qunit": "^5.0.1",
+    "@types/ember-qunit": "^5.0.2",
     "@types/ember-resolver": "^5.0.9",
     "@types/ember__test-helpers": "^2.8.1",
     "@types/qunit": "^2.19.2",
