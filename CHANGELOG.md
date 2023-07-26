@@ -1,4 +1,13 @@
 
+
+## v1.0.2 (2023-07-26)
+
+#### :bug: Bug Fix
+* [#213](https://github.com/ember-polyfills/ember-cached-decorator-polyfill/pull/213) Add ember-source v5 to peers list ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## v1.0.1 (2022-10-06)
 
 #### :bug: Bug Fix
